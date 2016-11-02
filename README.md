@@ -2,6 +2,40 @@
 
 A simple social network by midshipman, for midshipman.
 
+# Using workspace directory
+
+1. Make sure you have git installed
+
+    > which git"
+
+   if no response:
+
+    > sudo apt-get git"
+
+2. Add project folder to your filesystem
+
+    > git clone https://github.com/APPELLEJAX/Midspace.git
+
+    > cd Midspace
+
+4. Now from inside the directory you can edit, update, and Collaborate
+
+   view differences between your copy and master copy:
+
+    > git status
+
+   add your work to master copy:
+
+    > git add *
+
+    > git commit -m "<commit message goes here>"
+
+    > git push
+
+   update your directory with the work submitted by others:
+
+    > git pull
+
 # Organizations
 
 app/              - All application files for our social network go here
@@ -36,9 +70,14 @@ milestone progress.
 
 # COLOR SCHEME
 
-#660099 - lighter theme
-#440066 - darker theme
+.#660099 - lighter theme
+.#440066 - darker theme
 
-#eeeeff - off-white
-#aaaacc - highlights
-#222222 - off-black (give matted feel)
+.#eeeeff - off-white
+.#aaaacc - highlights
+.#222222 - off-black (give matted feel)
+
+# Highly recommend:
+
+- Everyone work in atom text editor.
+- Using the git terminal commands
