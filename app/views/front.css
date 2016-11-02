@@ -1,0 +1,32 @@
+body {
+  background-image: url("../resources/background3.jpg");
+  background-size: 135%;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Open Sans", sans-serif;
+}
+
+.logo {
+  text-align: center;
+  margin: auto;
+  color: #440066;
+  background-color: #eeeeff;
+  width: 65%;
+  padding-top: 1%;
+}
+
+.logo h1{
+  display: inline;
+  vertical-align: middle;
+  font-size: 6em;
+
+}
+
+.logo img{
+  display: inline;
+  height: 6em;
+}
+
+.login {
+  text-align: center;
+}
