@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<!-- details -->
+
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="_.css" />
+
+</head>
+
+<body>
+  <!--#include file="navBar_ssi.html"-->
+  <p>Hello loser</p>
+
+
+
+
+</body>
+
+</html>

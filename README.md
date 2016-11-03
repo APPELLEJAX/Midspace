@@ -40,7 +40,7 @@ A simple social network by midshipman, for midshipman.
 
 app/              - All application files for our social network go here
 
-app/viess         - HTML and CSS files go here
+app/views         - HTML and CSS files go here
 
 app/controllers   - PHP scripts for generating pages go here.
 
