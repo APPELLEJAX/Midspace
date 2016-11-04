@@ -30,3 +30,8 @@ body {
 .login {
   text-align: center;
 }
+
+.signup {
+  font-family: "Open Sans", sans-serif;
+  font-size: 3em;
+}
