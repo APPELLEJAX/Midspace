@@ -15,15 +15,15 @@
         <label>
           <input type="text" placeholder="Username" name="username" onblur="return validateField(this);" />
           <img src="../resources/noncomf.png" alt="bad input" />
-        </label>
+        </label><br />
         <label>
           <input type="password" placeholder="Password" name="password"  onblur="return validateField(this);" />
           <img src="../resources/noncomf.png" alt="bad input"  />
-        </label>
+        </label><br />
         <br />
         <label>
           <input type="text" placeholder="Add a link to your profile picture." name="img" onblur="return validateField(this);"/>
-        </label>
+        </label><br />
         <input type="button" value="Sign Up" onclick="return validate()"/>
         <input type="reset" value="Clear Form" />
       </form>
