@@ -6,6 +6,9 @@
       $profilelist[count($profilelist)] = $profile;
     }
     fclose($handle);
+  }else{
+    echo "ERROR";
+    exit();
   }
 
   #profilelist[i][0] - user id
@@ -19,6 +22,9 @@
       $postlist[count($postlist)] = $post;
     }
     fclose($handle);
+  }else{
+    echo "ERROR";
+    exit();
   }
 
   #postlist[i][0] - user id
