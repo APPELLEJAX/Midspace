@@ -16,8 +16,9 @@
       <br/>
       <input type="button" value="Login" />
     </div>
-    <div ="signup">
-      <a href="singup.shtml">Sign Up</a>
+    <div class="frontpagelink">
+      <a href="signup.shtml">Sign Up</a>
+
     </div>
 
   </body>

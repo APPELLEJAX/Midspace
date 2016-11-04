@@ -1,4 +1,5 @@
-body {
+/*Front page overhaul*/
+body{
   background-image: url("../resources/background3.jpg");
   background-size: 135%;
   background-position: center;
@@ -6,6 +7,7 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+/*Format logo on login page*/
 .logo {
   text-align: center;
   margin: auto;
@@ -19,7 +21,6 @@ body {
   display: inline;
   vertical-align: middle;
   font-size: 6em;
-
 }
 
 .logo img{
@@ -27,6 +28,31 @@ body {
   height: 6em;
 }
 
+/*Signup greeting formating*/
+.greeting{
+  text-align: center;
+  margin: auto;
+  color: #eeeeff;
+  width: 65%;
+}
+
+.greeting h1{
+  font-size: 6em;
+}
+
+/*format login*/
 .login {
   text-align: center;
+}
+
+/*format signup*/
+.signup {
+  text-align: center;
+}
+
+/*Links to other pages*/
+.frontpagelink {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  color: white;
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="front.css" />
+    <script type="text/javacript" href="../helpers/signupscript.js"></script>
+  </head>
+  <body>
+    <div class ="greeting">
+      <h1>Sign Up</h1>
+    </div>
+    <div class="signup">
+      <form onsubmit="return submit()" action="../controllers/createuser.php">
+        <label>
+          <input type="text" placeholder="Username" name="username" onblur="return validateField(this);" />
+          <img src="../resources/noncomf.png" alt="bad input" />
+        </label><br />
+        <label>
+          <input type="password" placeholder="Password" name="password"  onblur="return validateField(this);" />
+          <img src="../resources/noncomf.png" alt="bad input"  />
+        </label><br />
+        <br />
+        <label>
+          <input type="text" placeholder="Add a link to your profile picture." name="img" onblur="return validateField(this);"/>
+        </label><br />
+        <input type="button" value="Sign Up" onclick="return validate()"/>
+        <input type="reset" value="Clear Form" />
+      </form>
+  </div>
+  <div class="frontpagelink">
+    Already have an account? <a href="login.shtml">Log In.</a>
+  </div>
+
+  </body>
+
+</html>
