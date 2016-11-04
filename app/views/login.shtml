@@ -16,8 +16,13 @@
       <br/>
       <input type="button" value="Login" />
     </div>
+<<<<<<< HEAD
     <div class="signup">
       <a href="singup.shtml">Sign Up</a>
+=======
+    <div class="frontpagelink">
+      <a href="signup.shtml">Sign Up</a>
+>>>>>>> 91f5d78832b0d530e291849ad3ac7f9e6dfe8ab0
     </div>
 
   </body>
