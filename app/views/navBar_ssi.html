@@ -1,7 +1,17 @@
 <ul class = "nav">
-  <li class = "nav"><a class="active" href="#home">Home</a></li>
-  <li class = "nav"><a href="#news">News</a></li>
-  <li class = "nav"><a href="#contact">Contact</a></li>
-  <li class = "nav"><a href="#about">About</a></li>
+  <li class = "nav">
+    <form method = "get" action = "../controllers/profilesearchgen.php">
+            <input id="mysearch" type="text" size="20" name="search" value="">
+              <input type="submit" onclick="Searching" value="Search">
+  	</form></li>
+  <li class = "nav" style = "float:right"><a onclick="eraseCookie(SID)" href="#loginscreen">Logout</a></li>
+  <li class = "nav" style = "float:right"><a href="#profilepage">Your Profile</a></li>
+  <li class = "nav" style = "float:right"><a href="#homepage">Home</a></li>
 </ul>
 <br /> <br />
+
+<script>
+  function eraseCookie(name){
+    createCookie(name, "", -1);
+  }
+</script>
