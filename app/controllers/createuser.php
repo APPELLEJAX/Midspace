@@ -1,7 +1,9 @@
 <?php
 
-  $lastuid = 0;
-  if(($handle = fopen("../db/profiles.csv", "r")) !== FALSE){
+  echo "RUNNING";
+
+  $lastuid = -1;
+  if(($handle = fopen("../../db/profiles.csv", "r")) !== FALSE){
     while(($profile = fgetcsv($handle, 1000, ","))){
       $lastuid = $profile[0];
     }
@@ -11,7 +13,7 @@
     exit();
   }
 
-  if(($handle = fopen("../db/profiles.csv", "a")) !== FALSE){
+  if(($handle = fopen("../../db/profiles.csv", "a")) !== FALSE){
     $uid      = $lastuid + 1;
     $username = $_POST["name"];
     $posts    = $username . "posts.csv";

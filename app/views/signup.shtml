@@ -4,7 +4,7 @@
 
   <head>
     <link rel="stylesheet" type="text/css" href="front.css" />
-    <script type="text/javacript" href="../helpers/signupscript.js"></script>
+    <script type="text/javascript" src="../helpers/signupscript.js"></script>
   </head>
   <body>
     <div class ="greeting">
@@ -13,16 +13,13 @@
     <div class="signup">
       <form onsubmit="return submit()" action="../controllers/createuser.php">
         <label>
-          <input type="text" placeholder="Username" name="username" onblur="return validateField(this);" />
-          <img src="../resources/noncomf.png" alt="bad input" />
+          <input id="username" class="textinput" type="text" placeholder="Username" name="username" onchange="return validateUN();" />
         </label><br />
         <label>
-          <input type="password" placeholder="Password" name="password"  onblur="return validateField(this);" />
-          <img src="../resources/noncomf.png" alt="bad input"  />
+          <input id ="password" class="textinput" type="password" placeholder="Password" name="password"  onchange="return validatePSS();" />
         </label><br />
-        <br />
         <label>
-          <input type="text" placeholder="Add a link to your profile picture." name="img" onblur="return validateField(this);"/>
+          <input id="img" class="textinput" type="text" placeholder="Add a link to your profile picture." name="img" onchange="return validateIMG();"/>
         </label><br />
         <input type="button" value="Sign Up" onclick="return validate()"/>
         <input type="reset" value="Clear Form" />
