@@ -4,21 +4,45 @@
 
   <head>
     <link rel="stylesheet" type="text/css" href="front.css" />
+    <style>
+    input[type=text] {
+        width: 45%;
+        padding: 12px;
+        margin-top: 2%;
+        margin-right: 16%;
+        background-color: #eeeeff;
+    }
+    input[type=password] {
+        width: 45%;
+        padding: 12px;
+        margin-top: 2%;
+        margin-right: 6%;
+        background-color: #eeeeff;
+    }
+    input[type=button] {
+        width: 10%;
+        padding: 12px;
+        margin-top: 2%;
+        margin-right: 0%;
+        background-color: #eeeeff;
+    }
+    </style>
   </head>
   <body>
     <div class="logo">
       <h1>MIDSPACE</h1><img href="../resources/" alt="logo.png" />
     </div>
     <div class="login">
-      <input type="text" placeholder="Username" name="username"/>
-      <br/>
-      <input type="password" placeholder="Password" name="password">
-      <br/>
-      <input type="button" value="Login" />
+      <form>
+        <input type="text" placeholder="Username" name="username"/>
+        <br/>
+        <input type="password" placeholder="Password" name="password">
+        <input type="button" value="Login" />
+      </form>
     </div>
+    <br/>
     <div class="frontpagelink">
       <a href="signup.shtml">Sign Up</a>
-
     </div>
 
   </body>

@@ -15,7 +15,9 @@ body{
   background-color: #eeeeff;
   width: 65%;
   padding-top: 1%;
+  margin-top: 180px;
 }
+
 
 .logo h1{
   display: inline;
@@ -45,11 +47,13 @@ body{
   text-align: center;
 }
 
-<<<<<<< HEAD
-.frontpagelink {
+
+.frontpagelink a{
   font-family: "Open Sans", sans-serif;
-  font-size: 3em;
-=======
+  font-size: 2em;
+  margin-left: 73%;
+}
+
 /*format signup*/
 .signup {
   text-align: center;
