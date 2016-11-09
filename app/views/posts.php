@@ -4,7 +4,7 @@
 
   $page = new Page("Posts");
 
-  $page->content .= "<div class=\"postbox\"><form method\"get\" action\"\">";
+  $page->content .= "<div class=\"postbox\"><form method = \"get\" action = \"postSubmit.php\">";
   $page->content .= "<textarea id=\"postbox\" name=\"postbox\" placeholder=\"Tell us what you think...\"></textarea>";
   $page->content .= "<input type=\"submit\" value=\"Post\" />";
   $page->content .- "</form></div>";
