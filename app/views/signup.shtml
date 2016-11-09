@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<!--<<<<<<< HEAD
 <!DOCTYPE html>
 
 <html>
@@ -11,7 +11,7 @@
     <script type="text/javascript" src="../helpers/signupscript.js"></script>
 >>>>>>> 5df69af19b08c1e543e4352511bf9d545d065931
   </head>
-  
+
   <body>
     <div class ="greeting">
       <h1>Sign Up</h1>
@@ -52,7 +52,7 @@
   </body>
 
 </html>
-=======
+======= -->
 <!DOCTYPE html>
 
 <html>
@@ -65,21 +65,21 @@
         width: 45%;
         padding: 12px;
         margin-top: 2%;
-        margin-right: 16%;
+        margin-right: 0%;
         background-color: #eeeeff;
     }
     input[type=password] {
         width: 45%;
         padding: 12px;
         margin-top: 2%;
-        margin-right: 6%;
+        margin-right: 0%;
         background-color: #eeeeff;
     }
     input[type=button] {
         width: 10%;
         padding: 12px;
         margin-top: 2%;
-        margin-right: 0%;
+        margin-left: 27%;
         background-color: #eeeeff;
     }
 	input[type=reset] {
@@ -117,4 +117,6 @@
   </body>
 
 </html>
+<!--
 >>>>>>> f5f3f58786590d5ea57da9d8bbbbf73b6bbcf332
+-->
