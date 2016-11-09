@@ -5,6 +5,36 @@
   <head>
     <link rel="stylesheet" type="text/css" href="front.css" />
     <script type="text/javascript" src="../helpers/signupscript.js"></script>
+	<style>
+    input[type=text] {
+        width: 45%;
+        padding: 12px;
+        margin-top: 2%;
+        margin-right: 16%;
+        background-color: #eeeeff;
+    }
+    input[type=password] {
+        width: 45%;
+        padding: 12px;
+        margin-top: 2%;
+        margin-right: 6%;
+        background-color: #eeeeff;
+    }
+    input[type=button] {
+        width: 10%;
+        padding: 12px;
+        margin-top: 2%;
+        margin-right: 0%;
+        background-color: #eeeeff;
+    }
+	input[type=reset] {
+        width: 10%;
+        padding: 12px;
+        margin-top: 2%;
+        margin-right: 0%;
+        background-color: #eeeeff;
+    }
+    </style>
   </head>
   <body>
     <div class ="greeting">
