@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 
 <html>
@@ -51,3 +52,69 @@
   </body>
 
 </html>
+=======
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="front.css" />
+    <script type="text/javascript" src="../helpers/signupscript.js"></script>
+	<style>
+    input[type=text] {
+        width: 45%;
+        padding: 12px;
+        margin-top: 2%;
+        margin-right: 16%;
+        background-color: #eeeeff;
+    }
+    input[type=password] {
+        width: 45%;
+        padding: 12px;
+        margin-top: 2%;
+        margin-right: 6%;
+        background-color: #eeeeff;
+    }
+    input[type=button] {
+        width: 10%;
+        padding: 12px;
+        margin-top: 2%;
+        margin-right: 0%;
+        background-color: #eeeeff;
+    }
+	input[type=reset] {
+        width: 10%;
+        padding: 12px;
+        margin-top: 2%;
+        margin-right: 0%;
+        background-color: #eeeeff;
+    }
+    </style>
+  </head>
+  <body>
+    <div class ="greeting">
+      <h1>Sign Up</h1>
+    </div>
+    <div class="signup">
+      <form onsubmit="return submit()" action="../controllers/createuser.php">
+        <label>
+          <input id="username" class="textinput" type="text" placeholder="Username" name="username" onchange="return validateUN();" />
+        </label><br />
+        <label>
+          <input id ="password" class="textinput" type="password" placeholder="Password" name="password"  onchange="return validatePSS();" />
+        </label><br />
+        <label>
+          <input id="img" class="textinput" type="text" placeholder="Add a link to your profile picture." name="img" onchange="return validateIMG();"/>
+        </label><br />
+        <input type="button" value="Sign Up" onclick="return validate()"/>
+        <input type="reset" value="Clear Form" />
+      </form>
+  </div>
+  <div class="frontpagelink">
+    Already have an account? <a href="login.shtml">Log In.</a>
+  </div>
+
+  </body>
+
+</html>
+>>>>>>> f5f3f58786590d5ea57da9d8bbbbf73b6bbcf332

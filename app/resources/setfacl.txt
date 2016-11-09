@@ -1,0 +1,4 @@
+setfacl -Rm u:www-data:rwx Project
+setfacl -Rdm u:www-data:rwx Project
+setfacl -Rm u:m180378:rwx Project
+setfacl -Rdm u:m180378:rwx Project

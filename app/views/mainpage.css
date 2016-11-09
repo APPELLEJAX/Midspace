@@ -1,0 +1,101 @@
+/*Site Overhaul*/
+body{
+  font-family: "Open Sans", sans-serif;
+}
+
+/*Navbar work*/
+.nav{
+  z-index: 100;
+  position:fixed;
+  width: 100%;
+  height: 6em;
+  margin: 0px;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  padding-top: 1em;
+  padding-left: 3em;
+  background-image: url("../resources/background3.jpg");
+  background-size: 135%;
+  background-position: center;
+}
+
+.nav .navSRC{
+  display: inline-block;
+  margin-right: 20%;
+  margin-bottom: 1em;
+}
+
+.nav .navSRC input{
+  margin-left: .5em;
+  height: 2.2em;
+  font-family: Lato, sans-serif;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.nav .navSRC input#mysearch{
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 2em;
+  width: 22em;
+}
+
+.nav .navLNK{
+  text-align: center;
+  color: #eeeeff;
+  text-decoration: none;
+  display: inline-block;
+  height: 5em;
+  width: 5em;
+  padding-top: .5em;
+  margin-bottom: 1em;
+  margin-left: 3em;
+
+  border-radius: 3px;
+}
+
+.nav .navLNK:hover{
+  background: rgba(255, 255, 255, .3);
+}
+
+.nav .navLNK img{
+  display: block;
+  margin:auto;
+  vertical-align: middle;
+  height: 2.5em;
+  width: 2.5em;
+}
+
+/*Posting*/
+.postbox{
+  margin: 1em 30%;
+  width: auto;
+}
+
+.postbox #postbox{
+  width: 100%;
+  height: 7em;
+}
+
+.postbox input{
+  width: 20%;
+  margin-left: 80%;
+}
+
+/*Post Generation*/
+.postlist{
+  margin: 0px 30%;
+  width: auto;
+}
+
+.postlist h4{
+  font-family: Lato, sans-serif;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+.postlist p{
+  padding-left: 2em;
+  border-left: solid 1px #440066;
+}
