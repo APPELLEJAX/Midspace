@@ -50,12 +50,6 @@ body{
   text-align: center;
 }
 
-
-.frontpagelink a{
-  font-family: "Open Sans", sans-serif;
-  font-size: 2em;
-}
-
 /*format signup*/
 .signup {
   text-align: center;
@@ -66,8 +60,14 @@ body{
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
   color: white;
-  margin-left: 26%;
+  text-align: center;
+  margin-right: 25%;
 >>>>>>> 5df69af19b08c1e543e4352511bf9d545d065931
+}
+
+.frontpagelink a{
+  font-family: "Open Sans", sans-serif;
+  font-size: 2em;
 }
 
 .signuplink {
