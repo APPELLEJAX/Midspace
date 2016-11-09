@@ -19,7 +19,7 @@
       echo "<!DOCTYPE html>";
       echo "<html><head>";
       echo "<title>$this->title</title>";
-      echo "<link rel=\"stylesheet\" type=\"text/stylesheet\" href=\"$stylesheet\" />";
+      echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"$this->stylesheet\" />";
       echo "</head><body>";
       $this->displayNavbar();
       $this->displayContent();
@@ -32,12 +32,12 @@
 
       echo "<form class=\"navSRC\" method=\"get\" action=\"\">";
       echo "<input id=\"mysearch\" type=\"text\" size=\"20\" name=\"search\" placeholder=\"Search Midspace Users...\" />";
-      echo "<input type=\"submit\" value=\"Search\"/ >";
+      echo "<input type=\"submit\" value=\"Search\" />";
       echo "</form>";
 
-      echo "<a class=\"navLNK\" href=\"posts.php\"><img src=\"../resources/home.png\" /></a>";
+      echo "<a class=\"navLNK\" href=\"posts.php\"><img src=\"../resources/home.png\" />Home</a>";
 
-      echo "<a class=\"navLNK\" href=\"profile.php\"><img src=\"../resources/profile.png\" /></a>";
+      echo "<a class=\"navLNK\" href=\"profile.php\"><img src=\"../resources/profile.png\" />Profile</a>";
 
       echo "</div>";
      }
