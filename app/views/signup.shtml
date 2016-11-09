@@ -4,11 +4,7 @@
 
   <head>
     <link rel="stylesheet" type="text/css" href="front.css" />
-<<<<<<< HEAD
-    <script type="text/javacript" href="../helpers/signupscript.js"></script>
-=======
     <script type="text/javascript" src="../helpers/signupscript.js"></script>
->>>>>>> 5df69af19b08c1e543e4352511bf9d545d065931
   </head>
   <body>
     <div class ="greeting">
@@ -17,19 +13,6 @@
     <div class="signup">
       <form onsubmit="return submit()" action="../controllers/createuser.php">
         <label>
-<<<<<<< HEAD
-          <input type="text" placeholder="Username" name="username" onblur="return validateField(this);" />
-          <img src="../resources/noncomf.png" alt="bad input" />
-        </label>
-        <label>
-          <input type="password" placeholder="Password" name="password"  onblur="return validateField(this);" />
-          <img src="../resources/noncomf.png" alt="bad input"  />
-        </label>
-        <br />
-        <label>
-          <input type="text" placeholder="Add a link to your profile picture." name="img" onblur="return validateField(this);"/>
-        </label>
-=======
           <input id="username" class="textinput" type="text" placeholder="Username" name="username" onchange="return validateUN();" />
         </label><br />
         <label>
@@ -38,7 +21,6 @@
         <label>
           <input id="img" class="textinput" type="text" placeholder="Add a link to your profile picture." name="img" onchange="return validateIMG();"/>
         </label><br />
->>>>>>> 5df69af19b08c1e543e4352511bf9d545d065931
         <input type="button" value="Sign Up" onclick="return validate()"/>
         <input type="reset" value="Clear Form" />
       </form>
