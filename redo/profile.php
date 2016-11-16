@@ -39,8 +39,38 @@
         }
       }
     }
-    $page->content .= "</div>";
 
+  }
+
+  if(($handle = fopen("posts.txt", "r")) !== FASLE){
+    while($line = fgets($handle)){
+      if(trim($line) == "MS_ID:")
+        $cuid = (int)trim(fgets($handle));
+      if(trim($line) == "Username:")
+        $cusn = trim(fgets($handle));
+      if(trim($line) == "Picture:")
+        $cpic = trim(fgets($handle));
+      if(trim($line) == "Post:")
+        $cpst = trim(fgets($handle));
+      if(trim($line) == "Emotion:"){
+        $cemt = trim(fgets($handle));
+        if(isset($_COOKIE["PHPSESSID"])){
+          if($cuid == (int)trim($_SESSION["UID"])){
+            $page->content .= "<div class=\"propost\">";
+            $page->content .= "<img class=\"propic\" src=\"$cpic\" />";
+            $page->content .= "<h4><b>$cusn</b> feeling $cemt</h4>";
+            $page->content .= "<p>$cpst</p>";
+            $page->content .= "</div>";
+          }
+        }/*else{
+          $page->content .= "<div class=\"postlist\">";
+          $page->content .= "<img class=\"propic\" src=\"$cpic\" />";
+          $page->content .= "<h4><b>$cusn</b> feeling $cemt</h4>";
+          $page->content .= "<p>$cpst</p>";
+          $page->content .= "</div>";
+        }*/
+      }
+    }
   }
 
   $page->display();
