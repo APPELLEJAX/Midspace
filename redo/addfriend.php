@@ -16,6 +16,8 @@ if(!isset($_SESSION["UID"]) || !isset($_POST["proid"])){
   exit();
 }
 
+//echo "<h1>".$_SESSION["UID"].":".$_POST["proid"]."</h1>";
+
 //this if statement taks in the text from profiles.txt and makes old
 $old = "";
 if(($handle = fopen("profiles.txt", "r")) !== FASLE){
@@ -37,6 +39,8 @@ if(($handle = fopen("profiles.txt", "w")) !== FALSE){
     }
     if(trim($old[$i]) == "Username:")
       fwrite($handle, "Username:\n".trim($old[++$i])."\n");
+    if(trim($old[$i]) == "HashPass:")
+      fwrite($handle, "HashPass:\n".trim($old[++$i])."\n");
     if(trim($old[$i]) == "Picture:")
       fwrite($handle, "Picture:\n".trim($old[++$i])."\n");
     if(trim($old[$i]) == "Friends:"){
@@ -54,6 +58,9 @@ if(($handle = fopen("profiles.txt", "w")) !== FALSE){
 }
 
 $goto = trim($_POST["proid"]);
+
+$_SESSION["Friends"] .= "\t".$goto;
+
 echo "<script type=\"text/javascript\">document.location=\"profile.php?proid=$goto\"</script>";
 
  ?>

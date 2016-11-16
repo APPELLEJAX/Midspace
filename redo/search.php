@@ -16,7 +16,7 @@
     exit();
   }
 
-  if(!isset($_SESSION["Friends"])){
+  if(!isset($_SESSION["Friends"]) || !isset($_SESSION["UID"])){
     $_SESSION["Friends"] = "";
   }
 
@@ -34,8 +34,8 @@
         $cusn = trim(fgets($handle));
       if(trim($line) == "Picture:"){
         $cpic = trim(fgets($handle));
-        if(preg_match("/".trim($search)."/i", $cusn)){
-          $page->content .= "<div=\"searchitem\">";
+        if(preg_match("/".trim($search)."/i", $cusn) && $cusn != trim($_SESSION["Username"])){
+          $page->content .= "<div class=\"searchitem\">";
           $page->content .= "<a href=\"profile.php?proid=$cuid\">";
           $page->content .= "<img src=\"$cpic\" alt=\"$cusn pic\" />";
           $page->content .= "<h4>$cusn</h4>";
@@ -43,12 +43,13 @@
           $wegud = FALSE;
           foreach($pals as &$pal){
             if(trim($pal) == $cuid){ $wegud = TRUE; }
+            if(trim($_SESSION["uid"]) == $cuid){ $wegud = TRUE; }
           }
           if(!$wegud){
             $page->content .= "<form method=\"post\" action=\"addfriend.php\">";
-            $page->content .= "<input type=\"hidden\" name=\"proid\" val=\"$cuid\" />";
             $page->content .= "<input type=\"submit\" value=\"+ Friend\" />";
-            $type->content .= "</form>";
+            $page->content .= "<input type=\"hidden\" name=\"proid\" value=\"$cuid\" />";
+            $page->content .= "</form>";
           }
           $page->content .= "</div>";
         }

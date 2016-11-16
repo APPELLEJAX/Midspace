@@ -24,12 +24,12 @@
           $cfds = trim(fgets($handle));
           $proid = $_GET["proid"];
           if(trim($proid) == trim($cuid)){
-            $page->content .= "<div class=\"proinfo\">";
+            $page->content .= "<div class=\"proinfo\"><h2>Profile</h2>";
             $page->content .= "<img src=\"$cpic\" alt=\"profile pic\" />";
             $page->content .= "<h3>$cusn</h3>";
             if(trim($cfds) != ""){
               $cfds = explode("\t", $cfds);
-              $page->content .= "<div class=\"friendlist\">";
+              $page->content .= "<div class=\"friendlist\"><h2>Friends</h2>";
               if(($handlee = fopen("profiles.txt", "r")) !== FALSE){
                 while($linee = fgets($handlee)){
                   if(trim($linee) == "MS_ID:")
@@ -49,15 +49,16 @@
                   }
                 }
               }
+              fclose($handlee);
               $page->content .= "</div>";
             }
             $page->content .= "</div>";
-            fclose($handlee);
           }
         }
       }
     }
     fclose($handle);
+    $page->content .= "<div class=\"postlist\"><h2>Posts</h2>";
     if(($handle = fopen("posts.txt", "r")) !== FASLE){
       while($line = fgets($handle)){
         if(trim($line) == "MS_ID:")
@@ -80,17 +81,19 @@
         }
       }
     }
+    fclose($handle);
+    $page->content .= "</div>";
   }else{
     $proname    = $_SESSION["Username"];
     $proimg     = $_SESSION["Picture"];
     $profriends = $_SESSION["Friends"];
 
-    $page->content .= "<div class=\"proinfo\">";
+    $page->content .= "<div class=\"proinfo\"><h2>Profile</h2>";
     $page->content .= "<img src=\"$proimg\" alt=\"profile pic\" />";
     $page->content .= "<h3>$proname</h3>";
     if(trim($profriends) != ""){
       $profriends = explode("\t", $profriends);
-      $page->content .= "<div class=\"friendlist\">";
+      $page->content .= "<div class=\"friendlist\"><h2>Friends</h2>";
       if(($handle = fopen("profiles.txt", "r")) !== FALSE){
         while($line = fgets($handle)){
           if(trim($line) == "MS_ID:")
@@ -100,7 +103,7 @@
           if(trim($line) == "Picture:"){
             $cpic = trim(fgets($handle));
             foreach($profriends as &$profriend){
-              if($cuid == (int)trim($profriend)){
+              if($cuid == (int)trim($profriend) && trim($profriend) != ""){
                 $page->content .= "<div class=\"frienditem\">";
                 $page->content .= "<img src=\"$cpic\" alt=\"$cusn pic\" />";
                 $page->content .= "<h4>$cusn</h4>";
@@ -113,7 +116,7 @@
       $page->content .= "</div>";
     }
     $page->content .= "</div>";
-    fclose($handle);
+    $page->content .= "<div class=\"postlist\"><h2>Posts</h2>";
     if(($handle = fopen("posts.txt", "r")) !== FASLE){
       while($line = fgets($handle)){
         if(trim($line) == "MS_ID:")
@@ -137,6 +140,9 @@
       }
     }
   }
+  fclose($handle);
+  $page->content .= "</div>";
+
   $page->display();
 
  ?>
