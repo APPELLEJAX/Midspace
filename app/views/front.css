@@ -40,18 +40,14 @@ body{
 
 .greeting h1{
   font-size: 6em;
+  color: black;
+  margin-bottom: 0%;
+  margin-right: 32%;
 }
 
 /*format login*/
 .login {
   text-align: center;
-}
-
-
-.frontpagelink a{
-  font-family: "Open Sans", sans-serif;
-  font-size: 2em;
-  margin-left: 73%;
 }
 
 /*format signup*/
@@ -64,5 +60,19 @@ body{
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
   color: white;
+  text-align: center;
+  margin-right: 25%;
 >>>>>>> 5df69af19b08c1e543e4352511bf9d545d065931
+}
+
+.frontpagelink a{
+  font-family: "Open Sans", sans-serif;
+  font-size: 2em;
+}
+
+.signuplink {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2em;
+  color: white;
+  margin-left: 73%;
 }
