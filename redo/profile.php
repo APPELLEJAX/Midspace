@@ -62,13 +62,7 @@
             $page->content .= "<p>$cpst</p>";
             $page->content .= "</div>";
           }
-        }/*else{
-          $page->content .= "<div class=\"postlist\">";
-          $page->content .= "<img class=\"propic\" src=\"$cpic\" />";
-          $page->content .= "<h4><b>$cusn</b> feeling $cemt</h4>";
-          $page->content .= "<p>$cpst</p>";
-          $page->content .= "</div>";
-        }*/
+        }
       }
     }
   }
