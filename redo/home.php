@@ -30,7 +30,14 @@
         if(isset($_COOKIE["PHPSESSID"])){
           $friends = explode("\t", $_SESSION["Friends"]);
           foreach($friends as &$friend)
-          if($cuid == (int)trim($friend) || $cuid == (int)trim($_SESSION["UID"])){
+            if($cuid == (int)trim($friend)){
+              $page->content .= "<div class=\"postlist\">";
+              $page->content .= "<img class=\"propic\" src=\"$cpic\" />";
+              $page->content .= "<h4><b>$cusn</b> feeling $cemt</h4>";
+              $page->content .= "<p>$cpst</p>";
+              $page->content .= "</div>";
+            }
+          if($cuid == (int)trim($_SESSION["UID"])){
             $page->content .= "<div class=\"postlist\">";
             $page->content .= "<img class=\"propic\" src=\"$cpic\" />";
             $page->content .= "<h4><b>$cusn</b> feeling $cemt</h4>";

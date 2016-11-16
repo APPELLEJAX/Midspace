@@ -8,6 +8,26 @@
   $page = new Page("Profile");
 
   if(isset($_GET["proid"])){
+    if(($handle = fopen("profiles.txt", "r")) !== FALSE){
+      while($line = fgets($handle)){
+        if(trim($line) == "MS_ID:")
+          $cuid = (int)trim(fgets($handle));
+        if(trim($line) == "Username:")
+          $cusn = trim(fgets($handle));
+        if(trim($line) == "Picture:")
+          $cpic = trim(fgets($handle));
+        if(trim($line) == "Friends:"){
+          $cfds = trim(fgets($handle));
+          $proid = $_GET["proid"];
+          if(trim($proid) == trim($cuid)){
+            $page->content .= "<div class=\"proinfo\">";
+            $page->content .= "<img src=\"$cpic\" alt=\"profile pic\" />";
+            $page->content .= "<h3>$cusn</h3>";
+            $page->content .= "<div class=\"friendlist\">";
+          }
+        }
+      }
+    }
 
   }else{
     $proname    = $_SESSION["Username"];
@@ -38,6 +58,7 @@
           }
         }
       }
+      fclose($handle);
     }
     $page->content .= "</div>";
 
