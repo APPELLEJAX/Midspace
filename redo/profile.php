@@ -18,17 +18,18 @@
           $cpic = trim(fgets($handle));
         if(trim($line) == "Friends:"){
           $cfds = trim(fgets($handle));
+          $cfds = explode("\t", $cfds);
           $proid = $_GET["proid"];
           if(trim($proid) == trim($cuid)){
             $page->content .= "<div class=\"proinfo\">";
             $page->content .= "<img src=\"$cpic\" alt=\"profile pic\" />";
             $page->content .= "<h3>$cusn</h3>";
-            $page->content .= "<div class=\"friendlist\">";
+            $page->content .= "</div>";
           }
         }
       }
     }
-
+    fclose($handle);
   }else{
     $proname    = $_SESSION["Username"];
     $proimg     = $_SESSION["Picture"];
@@ -58,30 +59,57 @@
           }
         }
       }
+      $page->content .= "</div>";
+      $page->content .= "</div>";
       fclose($handle);
     }
-
-  }
-
-  if(($handle = fopen("posts.txt", "r")) !== FASLE){
-    while($line = fgets($handle)){
-      if(trim($line) == "MS_ID:")
+    if(($handle = fopen("posts.txt", "r")) !== FASLE){
+      while($line = fgets($handle)){
+        if(trim($line) == "MS_ID:")
         $cuid = (int)trim(fgets($handle));
-      if(trim($line) == "Username:")
+        if(trim($line) == "Username:")
         $cusn = trim(fgets($handle));
-      if(trim($line) == "Picture:")
+        if(trim($line) == "Picture:")
         $cpic = trim(fgets($handle));
-      if(trim($line) == "Post:")
+        if(trim($line) == "Post:")
         $cpst = trim(fgets($handle));
-      if(trim($line) == "Emotion:"){
-        $cemt = trim(fgets($handle));
-        if(isset($_COOKIE["PHPSESSID"])){
-          if($cuid == (int)trim($_SESSION["UID"])){
-            $page->content .= "<div class=\"propost\">";
-            $page->content .= "<img class=\"propic\" src=\"$cpic\" />";
-            $page->content .= "<h4><b>$cusn</b> feeling $cemt</h4>";
-            $page->content .= "<p>$cpst</p>";
-            $page->content .= "</div>";
+        if(trim($line) == "Emotion:"){
+          $cemt = trim(fgets($handle));
+          if(isset($_COOKIE["PHPSESSID"])){
+            if($cuid == (int)trim($_SESSION["UID"])){
+              $page->content .= "<div class=\"propost\">";
+              $page->content .= "<img class=\"propic\" src=\"$cpic\" />";
+              $page->content .= "<h4><b>$cusn</b> feeling $cemt</h4>";
+              $page->content .= "<p>$cpst</p>";
+              $page->content .= "</div>";
+            }
+          }
+        }
+      }
+    }
+  }
+  if(isset($_GET["proid"])){
+    $proid = $_GET["proid"];
+    if(($handle = fopen("posts.txt", "r")) !== FASLE){
+      while($line = fgets($handle)){
+        if(trim($line) == "MS_ID:")
+        $cuid = (int)trim(fgets($handle));
+        if(trim($line) == "Username:")
+        $cusn = trim(fgets($handle));
+        if(trim($line) == "Picture:")
+        $cpic = trim(fgets($handle));
+        if(trim($line) == "Post:")
+        $cpst = trim(fgets($handle));
+        if(trim($line) == "Emotion:"){
+          $cemt = trim(fgets($handle));
+          if(isset($_COOKIE["PHPSESSID"])){
+            if($cuid == trim($proid)){
+              $page->content .= "<div class=\"propost\">";
+              $page->content .= "<img class=\"propic\" src=\"$cpic\" />";
+              $page->content .= "<h4><b>$cusn</b> feeling $cemt</h4>";
+              $page->content .= "<p>$cpst</p>";
+              $page->content .= "</div>";
+            }
           }
         }
       }
