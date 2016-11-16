@@ -41,7 +41,7 @@ if(($handle = fopen("profiles.txt", "w")) !== FALSE){
         fwrite($handle, $_SESSION["UID"]);
       }
     }
-    else{
+    if(!($x = 0; $x <= count($old) && !($cuid == (int)trim($_SESSION["UID"]) && !($cuid == (int)$_POST["proid"])){
       fwrite($handle, $old[$x]);
     }
   fclose("profiles.txt");
