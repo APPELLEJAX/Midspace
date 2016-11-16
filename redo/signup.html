@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Midspace - Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="front.css" />
+    <script type="text/javascript" src="signupscript.js"></script>
+  </head>
+  <body onmouseover="validate();">
+    <div class="title">
+      <h1>Sign Up</h1>
+    </div>
+    <form class="signup" method="post" action="createuser.php">
+      <p>
+        To create a midspace profile, select a Username and Password.
+      </p>
+      <label>
+        Username:
+        <input id="username" class="textinput" type="text" placeholder="Username" name="username" onselect="return validateUN();" />
+        <label id="usernamemsg"></label>
+      </label><br />
+      <label>
+        Password:
+        <input id="password" class="textinput" type="password" placeholder="Password" name="password"  onselect="return validatePSS();" />
+        <label id="passwordmsg"></label>
+      </label><br />
+      <p>
+        Provide a link to your profile picture here, or leave it blank to use our default profile picture.
+      </p>
+      <label>
+        Profile Picture: <br />
+        <input id="img" class="textinput" type="text" placeholder="Add a link to your profile picture." name="img" onblur="return validateIMG();"/>
+      </label><br />
+      <input type="submit" value="Sign Up" onclick="return validate()"/>
+      <input type="reset" value="Clear Form" />
+    </form>
+    <div class="frontpagelink">
+      Already have an account? <a href="login.html">Log In.</a>
+    </div>
+  </body>
+</html>
