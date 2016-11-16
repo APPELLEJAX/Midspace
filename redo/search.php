@@ -16,7 +16,14 @@
     exit();
   }
 
+  if(!isset($_SESSION["Friends"])){
+    $_SESSION["Friends"] = "";
+  }
+
+
   $search = $_GET["search"];
+  $pals   = $_SESSION["Friends"];
+  $pals   = explode("\t", $pals);
 
   if(($handle = fopen("profiles.txt", "r")) !== FALSE){
     $page->content .= "<div class=\"searchlist\">";
@@ -28,10 +35,22 @@
       if(trim($line) == "Picture:"){
         $cpic = trim(fgets($handle));
         if(preg_match("/".trim($search)."/i", $cusn)){
-          $page->content .= "<a href=\"profile.php?proid=$cuid\" class=\"searchitem\">";
+          $page->content .= "<div=\"searchitem\">";
+          $page->content .= "<a href=\"profile.php?proid=$cuid\">";
           $page->content .= "<img src=\"$cpic\" alt=\"$cusn pic\" />";
           $page->content .= "<h4>$cusn</h4>";
           $page->content .= "</a>";
+          $wegud = FALSE;
+          foreach($pals as &$pal){
+            if(trim($pal) == $cuid){ $wegud = TRUE; }
+          }
+          if(!$wegud){
+            $page->content .= "<form method=\"post\" action=\"addfriend.php\">";
+            $page->content .= "<input type=\"hidden\" name=\"proid\" val=\"$cuid\" />";
+            $page->content .= "<input type=\"submit\" value=\"+ Friend\" />";
+            $type->content .= "</form>";
+          }
+          $page->content .= "</div>";
         }
       }
     }

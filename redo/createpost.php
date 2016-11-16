@@ -4,6 +4,10 @@
 
   if(isset($_COOKIE["PHPSESSID"]))
     session_start();
+  else{
+    echo "<script type=\"text/javascript\">document.location=\"login.html\"</script>";
+    exit();
+  }
 
   if(!isset($_POST["posttext"]) || !isset($_POST["emote"])){
     echo "INTERNAL ERROR!";
