@@ -81,3 +81,45 @@ milestone progress.
 
 - Everyone work in atom text editor.
 - Using the git terminal commands
+
+# Tracking comments:
+
++ createuser.php
++ login.php
++ createpost.php
++ home.php
+
+. profile.php //halfawy there. It's a bear.
+              //should also add that ADD FRIEND   button...
+              //and the post form...
+              //profile is generally a bitch. I got it.
+
+- search.php  //Add a little message if no one pops up.
+              //Needs to be puclic... so we'll have to do some contingency work
+- addfreind.php
+- page.inc.php //easy gimme
+- logout.php
+
+# Work to be done.
+
+1. The php commenting/refining above.
+2. Commenting and refining the javascripts.
+3. The css to make it all pretty.
+4. Making a contact page.
+5. FUCK FUCK SHIT FUCK we have to add these to how we do profiles and the
+   sign up page:
+     - full name.
+     - USNA class year.
+     - company number.
+     - biography textarea.
+     - (also kinda if they are admin or not)
+  We'll deal with this when we get there... I'll deal with it when we get there.
+6. List memebers page. (Just a link to a search with "" as the regex.)
+7. Profile Update page... balls.
+8. Admin area with
+    - Manage Users (i.e. delete users.)
+    - Statistics page (number of members, number of status updtes, %moods)
+9. More pretty-ness with css at this point.
+10. Make a file to store each user's posts. (Won't actually do anything with it
+    but it's a requirement.)
+11. The project report. 
