@@ -1,66 +1,67 @@
 <?php
-/*The general purpose of this php file is to read in the whole
- *profiles.txt file and rewrite it with the added friends.
- *created (for all intents and purposes) 15NOV16 - Woods, Jake
- */
 
-if(isset($_COOKIE["PHPSESSID"]))
-  session_start();
-else{
-  echo "<script type=\"text/javascript\">document.location=\"login.html\"</script>";
-  exit();
-}
-
-if(!isset($_SESSION["UID"]) || !isset($_POST["proid"])){
-  echo "INTERNAL ERROR! 1";
-  exit();
-}
-
-//echo "<h1>".$_SESSION["UID"].":".$_POST["proid"]."</h1>";
-
-//this if statement taks in the text from profiles.txt and makes old
-$old = "";
-if(($handle = fopen("profiles.txt", "r")) !== FASLE){
-  $old = fread($handle, filesize("profiles.txt"));
-  fclose($handle);
-}else{
-  echo "INTERNAL ERROR! 2";
-  exit();
-}
-
-//makes an array of the contents of old split up by newlines
-$old = explode("\n", $old);
-
-if(($handle = fopen("profiles.txt", "w")) !== FALSE){
-  for($i = 0; $i < count($old); $i++){
-    if(trim($old[$i]) == "MS_ID:"){
-      $cuid = (int)trim($old[++$i]);
-      fwrite($handle, "\nMS_ID:\n$cuid\n");
-    }
-    if(trim($old[$i]) == "Username:")
-      fwrite($handle, "Username:\n".trim($old[++$i])."\n");
-    if(trim($old[$i]) == "HashPass:")
-      fwrite($handle, "HashPass:\n".trim($old[++$i])."\n");
-    if(trim($old[$i]) == "Picture:")
-      fwrite($handle, "Picture:\n".trim($old[++$i])."\n");
-    if(trim($old[$i]) == "Friends:"){
-      fwrite($handle, "Friends:\n".trim($old[++$i]));
-      if($cuid == trim($_SESSION["UID"]))
-        fwrite($handle, "\t".trim($_POST["proid"]));
-      if($cuid == trim($_POST["proid"]))
-        fwrite($handle, "\t".trim($_SESSION["UID"]));
-      fwrite($handle, "\n");
-    }
+  //Check if a user is logged in. If not, redirect to login page.
+  if(isset($_COOKIE["PHPSESSID"]))
+    session_start();
+  else{
+    echo "<script type=\"text/javascript\">document.location=\"login.html\"</script>";
+    exit();
   }
-}else{
-  echo "INTERNAL ERROR! 3";
-  exit();
-}
 
-$goto = trim($_POST["proid"]);
+  //Should be getting a "proid" to add a user.
+  if(!isset($_SESSION["UID"]) || !isset($_POST["proid"])){
+    echo "INTERNAL ERROR! 1";
+    exit();
+  }
 
-$_SESSION["Friends"] .= "\t".$goto;
+  //Make proid and userid variables
+  $uid = (int)trim($_SESSION["UID"]);
+  $pid = (int)trim($_POST["proid"]);
 
-echo "<script type=\"text/javascript\">document.location=\"profile.php?proid=$goto\"</script>";
+  //Open profiles for reading.
+  if(($handle = fopen("profiles.txt", "r")) === FASLE){
+    echo "INTERNAL ERROR! 2";
+    exit();
+  }
+
+  //Place all the data into old as an array split over newlines.
+  $old = fread($handle, filesize("profiles.txt"));
+  $old = explode("\n", $old);
+
+  //Close profiles.
+  fclose($handle);
+
+  //Open profiles for writing, erase current content.
+  if(($handle = fopen("profiles.txt", "w")) === FALSE){
+    echo "INTERNAL ERROR! 3";
+    exit();
+  }
+
+  //Iterate over each line. Writeback irrelevant lines, append to affected lines.
+  foreach($old as &$line){
+
+    //Pull current id information from file as we iterate over each line.
+    if(trim($lastline) == "MS_ID:")
+      $cuid = (int)trim($line);
+
+    //Append to lines affected by add-friend
+    if(trim($lastline) == "Friends:" && $cuid == $pid)
+      $line = trim($line)."\t$uid";
+    if(trim($lastline) == "Firends:" && $cuid == $uid)
+      $line = trim($line)."\t$pid";
+
+    //Set lastline for iteration framework.
+    $lastline = $line;
+
+    //Writeback line.
+    fwrite($line."\n");
+
+  }
+
+  //Update session with new friend.
+  $_SESSION["Friends"] .= "\t".$pid;
+
+  //Redirect to new friend's profile.
+  echo "<script type=\"text/javascript\">document.location=\"profile.php?proid=$pid\"</script>";
 
  ?>

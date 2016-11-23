@@ -4,8 +4,9 @@
   require_once("page.inc.php");
 
   //Check if a user is logged in. If not, redirect to login page.
-  if(isset($_COOKIE["PHPSESSID"]))
+  if(isset($_COOKIE["PHPSESSID"])){
     session_start();
+  }
   else{
     echo "<script type=\"text/javascript\">document.location=\"login.html\"</script>";
     exit();
@@ -41,12 +42,12 @@
         $cfds = explode("\t", $cfds);
 
         //Filter for queried profile.
-        if(trim($proid) == $trim($cuid)){
+        if(trim($proid) == trim($cuid)){
 
           //Generate Profile info: Name, Picture, and FriendList
           $page->content .= "<div class=\"proinfo\"><h2>$cusn</h2>";
           $page->content .= "<img src=\"$cpic\" alt=\"$cpic pic\" />";
-          $page->content .= "<div> class=\"friendlist\">";
+          $page->content .= "<div> class=\"friendlist\"><h2>Friends</h2>";
 
           //Open profiles to read for friends...
           if(($handlee = fopen("profiles.txt", "r")) === FALSE){
@@ -85,7 +86,7 @@
 
           }
 
-          //c;pse friendlist div
+          //close friendlist div
           $page->content .= "</div>";
 
           //close profileinfo div
@@ -93,6 +94,8 @@
 
           //Close profiles
           fclose($handlee);
+
+          //>THIS IS WHERE TEXTBOX GOES
 
           //Generate post list for query.
           $page->content .= "<div class=\"postlist\">";
@@ -146,63 +149,87 @@
 
     }
 
+    /* BELOW IS THE TRANSITION TO VIEWING YOUR OWN PROFILE.
+       Should mirror above.
+    */
+
   }else{
-    // $proname    = $_SESSION["Username"];
-    // $proimg     = $_SESSION["Picture"];
-    // $profriends = $_SESSION["Friends"];
-    //
-    // $page->content .= "<div class=\"proinfo\"><h2>Profile</h2>";
-    // $page->content .= "<img src=\"$proimg\" alt=\"profile pic\" />";
-    // $page->content .= "<h3>$proname</h3>";
-    // if(trim($profriends) != ""){
-    //   $profriends = explode("\t", $profriends);
-    //   $page->content .= "<div class=\"friendlist\"><h2>Friends</h2>";
-    //   if(($handle = fopen("profiles.txt", "r")) !== FALSE){
-    //     while($line = fgets($handle)){
-    //       if(trim($line) == "MS_ID:")
-    //       $cuid = (int)trim(fgets($handle));
-    //       if(trim($line) == "Username:")
-    //       $cusn = trim(fgets($handle));
-    //       if(trim($line) == "Picture:"){
-    //         $cpic = trim(fgets($handle));
-    //         foreach($profriends as &$profriend){
-    //           if($cuid == (int)trim($profriend) && trim($profriend) != ""){
-    //             $page->content .= "<div class=\"frienditem\">";
-    //             $page->content .= "<img src=\"$cpic\" alt=\"$cusn pic\" />";
-    //             $page->content .= "<h4>$cusn</h4>";
-    //             $page->content .= "</div>";
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    //   $page->content .= "</div>";
-    // }
-    // $page->content .= "</div>";
-    // $page->content .= "<div class=\"postlist\"><h2>Posts</h2>";
-    // if(($handle = fopen("posts.txt", "r")) !== FASLE){
-    //   while($line = fgets($handle)){
-    //     if(trim($line) == "MS_ID:")
-    //     $cuid = (int)trim(fgets($handle));
-    //     if(trim($line) == "Username:")
-    //     $cusn = trim(fgets($handle));
-    //     if(trim($line) == "Picture:")
-    //     $cpic = trim(fgets($handle));
-    //     if(trim($line) == "Post:")
-    //     $cpst = trim(fgets($handle));
-    //     if(trim($line) == "Emotion:"){
-    //       $cemt = trim(fgets($handle));
-    //       if(isset($_COOKIE["PHPSESSID"])){
-    //         if($cuid == (int)trim($_SESSION["UID"])){
-    //           $page->content .= "<div class=\"propost\">";
-    //           $page->content .= "<p>$cpst<b> - feeling $cemt</b></p>";
-    //           $page->content .= "</div>";
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    //fclose($handle);
+    //save appropiate profile info to be used later
+    $proname    = $_SESSION["Username"];
+    $proimg     = $_SESSION["Picture"];
+    $profriends = $_SESSION["Friends"];
+
+    //Generate Profile info: Name, Picture
+    $page->content .= "<div class=\"proinfo\"><h2>$cusn</h2>";
+    $page->content .= "<img src=\"$cpic\" alt=\"$cpic pic\" />";
+
+    //generate friend list
+    if(trim($profriends) != ""){
+      $profriends = explode("\t", $profriends);
+      $page->content .= "<div class=\"friendlist\"><h2>Friends</h2>";
+
+      //Open profiles for reading one friend at a time.
+      if(($handlee = fopen("profiles.txt", "r")) === FALSE){
+        echo "INTERNAL ERROR!";
+        exit();
+      }
+      //below displays info for each friend
+      while($line = fgets($handle)){
+        if(trim($line) == "MS_ID:")
+          $cuid = (int)trim(fgets($handle));
+        if(trim($line) == "Username:")
+          $cusn = trim(fgets($handle));
+        if(trim($line) == "Picture:"){
+          $cpic = trim(fgets($handle));
+          foreach($profriends as &$profriend){
+            if($cuid == (int)trim($profriend) && trim($profriend) != ""){
+              $page->content .= "<div class=\"frienditem\">";
+              $page->content .= "<img src=\"$cpic\" alt=\"$cusn pic\" />";
+              $page->content .= "<h4>$cusn</h4>";
+              $page->content .= "</div>";
+            }
+          }
+        }
+      }
+    $page->content .= "</div>";
+    }
+
+    //transition in page from friends list to posts
+    $page->content .= "<div class=\"postlist\"><h2>Posts</h2>";
+    $page->content .= "</div>";
+    $page->content .= "<div class=\"postbox\"><form method=\"post\" action=\"createpost.php\">";
+    $page->content .= "<textarea name=\"posttext\" placeholder=\"Tell us what you think...\"></textarea>";
+    $page->content .= "<select name=\"emote\"><option value=\"Happy\">Happy</option><option value=\"Angry\">Angry</option><option value=\"Sad\">Sad</option><option value=\"Anxious\">Anxious</option></select>";
+    $page->content .= "<input type=\"submit\" value=\"Post\" />";
+    $page->content .= "</form></div>";
+
+    //Open posts for reading.
+    if(($handlee = fopen("posts.txt", "r")) === FALSE){
+      echo "INTERNAL ERROR!";
+      exit();
+    }
+    //read and put post info into contents of page to be displayed
+    while($line = fgets($handle)){
+      if(trim($line) == "MS_ID:")
+        $cuid = (int)trim(fgets($handle));
+      if(trim($line) == "Username:")
+        $cusn = trim(fgets($handle));
+      if(trim($line) == "Picture:")
+        $cpic = trim(fgets($handle));
+      if(trim($line) == "Post:")
+        $cpst = trim(fgets($handle));
+      if(trim($line) == "Emotion:"){
+        $cemt = trim(fgets($handle));
+        if(isset($_COOKIE["PHPSESSID"])){
+          if($cuid == (int)trim($_SESSION["UID"])){
+            $page->content .= "<div class=\"propost\">";
+            $page->content .= "<p>$cpst<b> - feeling $cemt</b></p>";
+            $page->content .= "</div>";
+            }
+          }
+        }
+      }
+      fclose($handle);
   }
 
   //Generate content.

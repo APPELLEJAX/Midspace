@@ -2,13 +2,13 @@
 
   //Should be getting username and password from login.
   if(!isset($_POST["username"]) || !isset($_POST["password"])){
-    echo "INTERNAL ERROR!";
+    echo "INTERNAL ERROR! 1";
     exit();
   }
 
   //Open profiles for reading.
-  if(($handle = fopen("profiles.txt", "r")) !== FALSE){
-    echo "INTERNAL ERROR!";
+  if(($handle = fopen("profiles.txt", "r")) === FALSE){
+    echo "INTERNAL ERROR! 2";
     exit();
   }
 

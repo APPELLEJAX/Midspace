@@ -14,14 +14,65 @@
         To create a midspace profile, select a Username and Password.
       </p>
       <label>
-        Username:
+        Username: <br />
         <input id="username" class="textinput" type="text" placeholder="Username" name="username" onselect="return validateUN();" />
         <label id="usernamemsg"></label>
       </label><br />
       <label>
-        Password:
+        Full Name: <br />
+        <input id="realname" class="textinput" type="text" placeholder="Name McName" name="realname" onselect="return validateRN();" />
+        <label id="realnamemsg"></label>
+      </label><br />
+      <label>
+        Password: <br />
         <input id="password" class="textinput" type="password" placeholder="Password" name="password"  onselect="return validatePSS();" />
         <label id="passwordmsg"></label>
+        <br />
+        Confirm Pass: <br />
+        <input id="password2" class="textinput" type="password" placeholder="Password" name="password2" onblur="return validatePS2();" />
+        <label id="password2msg"></label>
+      </label><br />
+      <label>
+        Class Year:
+        <select id="class" class="etcinput" name="class">
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+        </select>
+        Company:
+        <select id="comp" class="etcinput" name="comp">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+          <option value="24">24</option>
+          <option value="25">25</option>
+          <option value="26">26</option>
+          <option value="27">27</option>
+          <option value="28">28</option>
+          <option value="29">29</option>
+          <option value="30">30</option>
+        </select>
       </label><br />
       <p>
         Provide a link to your profile picture here, or leave it blank to use our default profile picture.
@@ -30,9 +81,17 @@
         Profile Picture: <br />
         <input id="img" class="textinput" type="text" placeholder="Add a link to your profile picture." name="img" onblur="return validateIMG();"/>
       </label><br />
-      <input type="submit" value="Sign Up" onclick="return validate()"/>
-      <input type="reset" value="Clear Form" />
+      <p>
+        Provide a short bio to help others get to know you.
+      </p>
+      <label>
+        Bio: <br />
+        <textarea class="textinput" onblur="return validateBIO();" placeholder="Bio goes here..."></textarea>
+      </label><br />
+      <input class="signupsub" type="submit" value="Sign Up" onclick="return validate()"/>
+      <input class="signupsub" type="reset" value="Clear Form" />
     </form>
+    <br />
     <div class="frontpagelink">
       Already have an account? <a href="login.html">Log In.</a>
     </div>

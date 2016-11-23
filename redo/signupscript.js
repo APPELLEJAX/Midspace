@@ -8,6 +8,16 @@ function validateUN(){
   return true;
 }
 
+function validateRN(){
+  var val = document.getElementById("realname");
+  if(val.value == null || val.value == ""){
+    document.getElementById("realnamemsg").innerHTML = "Name Required.";
+    return false;
+  }
+  document.getElementById("realnamemsg").innerHTML = null;
+  return true;
+}
+
 function validatePSS(){
   var val = document.getElementById("password");
   if(val.value == null || val.value == ""){
@@ -22,16 +32,38 @@ function validatePSS(){
   return true;
 }
 
-function validateIMG(){
-  var val = document.getElementById("img");
-  if(val.value != null || val.value != ""){
-
+function validatePS2(){
+  var val = document.getElementById("password2");
+  if(val.value == null || val.value == ""){
+    document.getElementById("password2msg").innerHTML = "Verify Password.";
+    return false;
   }
-
+  if(val.value != document.getElementById("password").value){
+    document.getElementById("password2msg").innerHTML = "Does not match!";
+    return false;
+  }
+  document.getElementById("password2msg").innerHTML = null;
   return true;
 }
 
+function validateIMG(){
+  var val = document.getElementById("img");
+  if(val.value == null || val.value == ""){
+
+  }
+  return true;
+}
+
+function validateBIO(){
+  var val = document.getElementById("img");
+  if(val.value == null || val.value == ""){
+
+  }
+  return true;
+}
+
+
 function validate(){
-  validateUN() || validatePSS() || validateIMG();
-  return validateUN() && validatePSS() && validateIMG()
+  validateUN() || validateRN() || validatePSS() || validatePS2() || validateIMG() || validateBIO();
+  return validateUN() && validateRN() && validatePSS()  && validatePS2() && validateIMG() && validateBIO();
 }

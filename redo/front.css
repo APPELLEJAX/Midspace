@@ -70,10 +70,34 @@ body{
   width: 33%;
 }
 
+.signup .etcinput{
+  font-size: 1.2em;
+  padding: .3em .3em;
+  margin: 1em;
+  width: 20%;
+}
+
 .signup #img{
   width: 90%;
   margin-left: 1em;
   text-align: center;
+}
+
+.signup textarea.textinput{
+  font-size: .8em;
+  margin-left: 1.5em;
+  width: 90%;
+  height: 4em;
+  text-align: center;
+}
+
+.signup .signupsub{
+  display: inline-block;
+  text-align: center;
+  font-size: 1.3em;
+  padding: .5em;
+  margin: 1em;
+  margin-left: 3.5em;
 }
 
 /*Front Links*/
@@ -81,6 +105,7 @@ body{
 .frontpagelink{
   font-size: 1.0em;
   color: #aaaacc;
+  background: none;
   margin-right: 36%;
   text-align: right;
 }

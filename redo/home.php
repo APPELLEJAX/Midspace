@@ -19,7 +19,7 @@
     $page->content .= "<input type=\"submit\" value=\"Post\" />";
     $page->content .= "</form></div>";
   }else{
-    $page->content .= "<div class=\"advisory\">You are viewing all posts on Midspace as a guest. To access more functionality, <a href=\"login.html\">log in</a> or <a hraf=\"signup.html\">sign up</a></div>"
+    $page->content .= "<div class=\"advisory\">You are viewing all posts on Midspace as a guest. To access more functionality, <a href=\"login.html\">log in</a> or <a hraf=\"signup.html\">sign up</a></div>";
   }
 
   //Open posts for reading.
@@ -43,12 +43,15 @@
       $cpst = trim(fgets($handle));
       $junk = trim(fgets($handle));
       $cemt = trim(fgets($handle));
+      $junk = trim(fgets($handle));
+      $ctim = trim(fgets($handle));
       //If user is signed in, filter in only friend's and own posts.
       if(isset($_COOKIE["PHPSESSID"])){
         $friends = explode("\t", $_SESSION["Friends"]);
         foreach($friends as &$friend)
         if($cuid == (int)trim($friend) || $cuid == (int)trim($_SESSION["UID"])){
           $page->content .= "<div class=\"postitem\">";
+          $page->content .= "<b>$ctim<b>";
           $page->content .= "<img src=\"$cpic\" />";
           $page->content .= "<h4><b>$cusn</b> feeling $cemt</h4>";
           $page->content .= "<p>$cpst</p>";
@@ -56,6 +59,7 @@
         }
       }else{
         $page->content .= "<div class=\"postitem\">";
+        $page->content .= "<b>$ctim<b>";
         $page->content .= "<img src=\"$cpic\" />";
         $page->content .= "<h4><b>$cusn</b> feeling $cemt</h4>";
         $page->content .= "<p>$cpst</p>";

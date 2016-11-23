@@ -38,7 +38,7 @@
   $pic  = $_SESSION["Picture"];
   $post = $_POST["posttext"];
   $emtn = $_POST["emote"];
-  $time = $date("d M, Y h:i");
+  $time = date("d M, Y h:i");
   fwrite($handle, "\nMS_ID:\n$uid\nUsername:\n$un\nPicture:\n$pic\nPost:\n$post\nEmotion:\n$emtn\nTimestamp:\n$time\n");
 
   //Replace all old data.
@@ -47,7 +47,13 @@
   //Close posts.
   fclose($handle);
 
-  //Redirect back to user's profile page.
-  echo "<script type=\"text/javascript\">document.location=\"profile.php\"</script>";
+  //Redirect back to user's profile page or home page depending on where they came from.
+
+  $camefrom = $_SERVER['HTTP_REFERER'];
+  $camefrom = "/".substr($camefrom, -8, -1)."/";
+  if(preg_match(trim($camefrom), "home.ph"))
+    echo "<script type=\"text/javascript\">document.location=\"home.php\"</script>";
+  else
+    echo "<script type=\"text/javascript\">document.location=\"profile.php\"</script>";
 
   ?>
