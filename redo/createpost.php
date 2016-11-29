@@ -39,6 +39,7 @@
   $post = $_POST["posttext"];
   $emtn = $_POST["emote"];
   $time = date("d M, Y h:i");
+  //$post = trim($post);
   fwrite($handle, "\nMS_ID:\n$uid\nUsername:\n$un\nPicture:\n$pic\nPost:\n$post\nEmotion:\n$emtn\nTimestamp:\n$time\n");
 
   //Replace all old data.

@@ -1,32 +1,38 @@
 
 MS_ID:
-0
-Username:
-Jason Harvey
-HashPass:
-0a92e090d416a65bd33a8f012f0b06d9
-Picture:
-./default.jpg
-Friends:
-1
-
-MS_ID:
 1
 Username:
-A.J. Beal
+abeal
 HashPass:
 34beaf224859c9c188e1d33bc3345181
 Picture:
-./default.jpg
+https://pbs.twimg.com/profile_images/740859025294778368/OSaJqRY2.jpg
 Friends:
-0
+
+Class:
+2017
+Company:
+1
+Bio:
+l33t h4x
+Full Name:
+A.J. Beal
 
 MS_ID:
 2
 Username:
-Jake Woods
+jharvey
 HashPass:
-25d55ad283aa400af464c76d713c07ad
+42e3217c6de89f9fcfe6935b00019b5c
 Picture:
-http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg
+https://image.spreadshirtmedia.com/image-server/v1/compositions/111279565/views/1,width=300,height=300,appearanceId=1,version=1473664654/holy-shit-t-shirts-men-s-premium-t-shirt.jpg
 Friends:
+
+Class:
+2019
+Company:
+20
+Bio:
+I'm MAGAMAN
+Full Name:
+Jason Harvey

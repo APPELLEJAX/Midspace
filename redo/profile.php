@@ -36,18 +36,30 @@
         $junk = trim(fgets($handle));
         $cusn = trim(fgets($handle));
         $junk = trim(fgets($handle));
+        $junk = trim(fgets($handle));
+        $junk = trim(fgets($handle));
         $cpic = trim(fgets($handle));
         $junk = trim(fgets($handle));
         $cfds = trim(fgets($handle));
+        $junk = trim(fgets($handle));
+        $class= trim(fgets($handle));
+        $junk = trim(fgets($handle));
+        $comp = trim(fgets($handle));
+        $junk = trim(fgets($handle));
+        $bio  = trim(fgets($handle));
+        $junk = trim(fgets($handle));
+        $full = trim(fgets($handle));
         $cfds = explode("\t", $cfds);
 
         //Filter for queried profile.
         if(trim($proid) == trim($cuid)){
 
           //Generate Profile info: Name, Picture, and FriendList
-          $page->content .= "<div class=\"proinfo\"><h2>$cusn</h2>";
+          $page->content .= "<div class=\"proinfo\"><h2>$full @$cusn</h2>";
           $page->content .= "<img src=\"$cpic\" alt=\"$cpic pic\" />";
-          $page->content .= "<div> class=\"friendlist\"><h2>Friends</h2>";
+          $page->content .= "<h3>Company $comp Class of $class</h3>";
+          $page->content .= "<p>Bio: <br /><br />$bio</p>";
+          $page->content .= "<div class=\"friendlist\"><h2>Friends</h2>";
 
           //Open profiles to read for friends...
           if(($handlee = fopen("profiles.txt", "r")) === FALSE){
@@ -158,18 +170,24 @@
     $proname    = $_SESSION["Username"];
     $proimg     = $_SESSION["Picture"];
     $profriends = $_SESSION["Friends"];
+    $proclass   = $_SESSION["Class"];
+    $procompany = $_SESSION["Company"];
+    $probio     = $_SESSION["Bio"];
+    $proFullname= $_SESSION["Fullname"];
 
-    //Generate Profile info: Name, Picture
-    $page->content .= "<div class=\"proinfo\"><h2>$cusn</h2>";
-    $page->content .= "<img src=\"$cpic\" alt=\"$cpic pic\" />";
-
+    //Generate Profile info: Name, Picture, class, company, bio
+    //proinfo class needs subclasses h2, h3, img, and p
+    $page->content .= "<div class=\"proinfo\"><h2>$proFullname @$proname</h2>";
+    $page->content .= "<img src=\"$proimg\" alt=\"$proimg pic\" />";
+    $page->content .= "<h3>Company $procompany Class of $proclass</h3>";
+    $page->content .= "<p>Bio: <br /><br />$probio</p>";
     //generate friend list
     if(trim($profriends) != ""){
       $profriends = explode("\t", $profriends);
       $page->content .= "<div class=\"friendlist\"><h2>Friends</h2>";
 
       //Open profiles for reading one friend at a time.
-      if(($handlee = fopen("profiles.txt", "r")) === FALSE){
+      if(($handle = fopen("profiles.txt", "r")) === FALSE){
         echo "INTERNAL ERROR!";
         exit();
       }
@@ -191,20 +209,22 @@
           }
         }
       }
+    fclose($handle);
     $page->content .= "</div>";
     }
+    $page->content .= "</div>";
 
     //transition in page from friends list to posts
-    $page->content .= "<div class=\"postlist\"><h2>Posts</h2>";
     $page->content .= "</div>";
     $page->content .= "<div class=\"postbox\"><form method=\"post\" action=\"createpost.php\">";
     $page->content .= "<textarea name=\"posttext\" placeholder=\"Tell us what you think...\"></textarea>";
-    $page->content .= "<select name=\"emote\"><option value=\"Happy\">Happy</option><option value=\"Angry\">Angry</option><option value=\"Sad\">Sad</option><option value=\"Anxious\">Anxious</option></select>";
+    $page->content .= "<b>-feeling</b><select name=\"emote\"><option value=\"Happy\">Happy</option><option value=\"Angry\">Angry</option><option value=\"Sad\">Sad</option><option value=\"Anxious\">Anxious</option></select>";
     $page->content .= "<input type=\"submit\" value=\"Post\" />";
     $page->content .= "</form></div>";
+    $page->content .= "<div class=\"postlist\"><h2>Posts</h2>";
 
     //Open posts for reading.
-    if(($handlee = fopen("posts.txt", "r")) === FALSE){
+    if(($handle = fopen("posts.txt", "r")) === FALSE){
       echo "INTERNAL ERROR!";
       exit();
     }
@@ -218,18 +238,21 @@
         $cpic = trim(fgets($handle));
       if(trim($line) == "Post:")
         $cpst = trim(fgets($handle));
-      if(trim($line) == "Emotion:"){
+      if(trim($line) == "Emotion:")
         $cemt = trim(fgets($handle));
+      if(trim($line) == "Timestamp:"){
+        $ctim = trim(fgets($handle));
         if(isset($_COOKIE["PHPSESSID"])){
           if($cuid == (int)trim($_SESSION["UID"])){
             $page->content .= "<div class=\"propost\">";
+            $page->content .= "<h4>$ctim</h4b>";
             $page->content .= "<p>$cpst<b> - feeling $cemt</b></p>";
             $page->content .= "</div>";
             }
           }
         }
       }
-      fclose($handle);
+    fclose($handle);
   }
 
   //Generate content.

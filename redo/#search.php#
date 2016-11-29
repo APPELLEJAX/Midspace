@@ -29,17 +29,11 @@
   $pals   = explode("\t", $pals);
 
   //open profiles for reading users for search
+  
   if(($handle = fopen("profiles.txt", "r")) !== FALSE){
-
-    //if no users found
-    if(preg_match("/".trim($search)."/i", $cusn) == FALSE){
-        $page->content .= "<h4 id=\"res\">No Results Found For \"$search\":</h4>";
-      }
-      else{ //show results for users found
-          $page->content .= "<h4 id=\"res\">Results for \"$search\":</h4>";
-          $page->content .= "<div class=\"searchlist\">";
-        }
-
+    $page->content .= "<h4 id=\"res\">Results for \"$search\":</h4>";
+    $page->content .= "<div class=\"searchlist\">";
+  
     while($line = fgets($handle)){
       if(trim($line) == "MS_ID:")
         $cuid = trim(fgets($handle));
@@ -51,10 +45,7 @@
         $cful = trim(fgets($handle));
         //we do regular expression matching with the search and the username while ignoring the
         //user that is doing the searching (we don't want to display themselves on the search)
-
-
         if(preg_match("/".trim($search)."/i", $cusn) && $cusn != trim($_SESSION["Username"])){
-
           //displays user information in div format for each person who matches search
           $page->content .= "<div class=\"searchitem\">";
           $page->content .= "<a href=\"profile.php?proid=$cuid\">";
@@ -64,7 +55,6 @@
           $wegud = FALSE;
           //wegud is changed to True and thus not displayed if the person that matches
           //is themselves or already a friend
-
           foreach($pals as &$pal){
             if(trim($pal) == $cuid){ $wegud = TRUE; }
             if(trim($_SESSION["uid"]) == $cuid){ $wegud = TRUE; }

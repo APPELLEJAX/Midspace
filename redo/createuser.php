@@ -30,9 +30,13 @@
 
   //Set new profile variables
   $uid        = $nextUID;
+  $fullname   = trim($_POST["realname"]);
   $username   = trim($_POST["username"]);
   $hashpass   = md5(trim($_POST["password"]));
   $profilepic = trim($_POST["img"]);
+  $classYear  = trim($_POST["class"]);
+  $company    = trim($_POST["comp"]);
+  $bio        = trim($_POST["bio"]);
   if($profilepic == ""){ $profilepic = "./default.jpg"; }
 
   //Open up profiles to append.
@@ -42,12 +46,12 @@
   }
 
   //Append in our new profile.
-  fwrite($handle, "\nMS_ID:\n$uid\nUsername:\n$username\nHashPass:\n$hashpass\nPicture:\n$profilepic\nFriends:\n\n");
+  fwrite($handle, "\nMS_ID:\n$uid\nUsername:\n$username\nHashPass:\n$hashpass\nPicture:\n$profilepic\nFriends:\n\nClass:\n$classYear\nCompany:\n$company\nBio:\n$bio\nFull Name:\n$fullname\n\n");
 
   //Close profiles.
   fclose($handle);
 
-  //Redirect back to the login page. 
+  //Redirect back to the login page.
   echo "<script type=\"text/javascript\">document.location=\"login.html\";</script>";
 
  ?>

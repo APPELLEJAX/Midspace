@@ -5,8 +5,10 @@
 }
 
 body{
+  background-color: #222222;
   background-image: url("bkgnd.jpg");
   background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 /*Front Page Titles*/
@@ -15,7 +17,7 @@ body{
   width: 30%;
   padding: .5em;
   margin: auto;
-  margin-top: 12em;
+  margin-top: 5em;
   text-align: center;
   background-color: #eeeeff;
 }
@@ -97,13 +99,13 @@ body{
   font-size: 1.3em;
   padding: .5em;
   margin: 1em;
-  margin-left: 3.5em;
+  margin-left: 2em;
 }
 
 /*Front Links*/
 
 .frontpagelink{
-  font-size: 1.0em;
+  font-size: 1.2em;
   color: #aaaacc;
   background: none;
   margin-right: 36%;
@@ -120,4 +122,14 @@ body{
 
 .frontpagelink a:visited{
   color: #eeeeff;
+}
+
+/*fail message*/
+
+.failmessage{
+
+  text-align: center;
+  font-size: 1.0em;
+  color: #222222;
+  padding: .3em;
 }

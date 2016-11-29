@@ -1,11 +1,124 @@
 
+
 MS_ID:
 1
 Username:
 abeal
 HashPass:
-b98b100e750b3c88a8c667a2eff730a6
+34beaf224859c9c188e1d33bc3345181
+Picture:
+https://pbs.twimg.com/profile_images/740859025294778368/OSaJqRY2.jpg
+Friends:
+4	2	3	6	5
+Class:
+2018
+Company:
+12
+Bio:
+But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
+Full Name:
+A.J. Beal
+
+
+MS_ID:
+2
+Username:
+jharvey
+HashPass:
+42e3217c6de89f9fcfe6935b00019b5c
+Picture:
+https://bands-completelyindepe.netdna-ssl.com/prodimages/074_Punk-Goes-Metal.jpg
+Friends:
+1	3
+Class:
+2018
+Company:
+6
+Bio:
+> Want to go see Disney's Chimpanze in theaters >no friends to see it > decide I'll show up to the theater in a gorilla costume so people think I'm funny and not a weirdo or something > go to my attic to get my old gorilla costume > a beam of light shines upon it as if it were meant to be > brush off the cob webs and decripit cat turds > go to put it on ... etc...
+Full Name:
+Jason Harvey
+
+
+MS_ID:
+3
+Username:
+ckearns
+HashPass:
+25d55ad283aa400af464c76d713c07ad
+Picture:
+https://i.ytimg.com/vi/YpSi2rW4oHk/maxresdefault.jpg
+Friends:
+1	4	2
+Class:
+2018
+Company:
+24
+Bio:
+Somewhere behind the athlete you've become and the hours of practice and the coaches who have pushed you is a little girl who fell in love with the game and never looked back... play for her.
+Full Name:
+Charlene Kearns
+
+
+MS_ID:
+4
+Username:
+jwoods
+HashPass:
+25d55ad283aa400af464c76d713c07ad
 Picture:
 ./default.jpg
 Friends:
+1	3	5
+Class:
+2019
+Company:
+1
+Bio:
+Cause I'm just a teenage dirt bag baby I'm just a teenage dirt bag baby Listen to Iron Maiden baby with me
+Full Name:
+Jake Woods
+
+MS_ID:
+5
+Username:
+jharvey_
+HashPass:
+fc4bca86f11f768178c72f0f9798fc5b
+Picture:
+http://zeldawiki.org/images/thumb/c/c4/Dark_Link.png/180px-Dark_Link.png
+Friends:
+4	1
+Class:
+2018
+Company:
+6
+Bio:
+I am the anti-jason. fear my power...
+Full Name:
+Shadow Jason
+
+
+
+MS_ID:
+6
+Username:
+svetlawalsh
+HashPass:
+25d55ad283aa400af464c76d713c07ad
+Picture:
+./default.jpg
+Friends:
+	1
+Class:
+2018
+Company:
+18
+Bio:
+Wow this is cool and please hack me
+Full Name:
+Svetla Walsh
+
+
+
 

@@ -25,6 +25,15 @@
       $cpic = trim(fgets($handle));
       $junk = trim(fgets($handle));
       $cfds = trim(fgets($handle));
+      $junk = trim(fgets($handle));
+      $class= trim(fgets($handle));
+      $junk = trim(fgets($handle));
+      $comp = trim(fgets($handle));
+      $junk = trim(fgets($handle));
+      $bio  = trim(fgets($handle));
+      $junk = trim(fgets($handle));
+      $full = trim(fgets($handle));
+
       //Check if this is our user. If so, start the session, then go to homepage.
       if(trim($_POST["username"]) == $cusn && md5(trim($_POST["password"])) == $chps){
         fclose($handle);
@@ -33,6 +42,10 @@
         $_SESSION["Username"] = $cusn;
         $_SESSION["Picture"]  = $cpic;
         $_SESSION["Friends"]  = $cfds;
+        $_SESSION["Class"]    = $class;
+        $_SESSION["Company"]  = $comp;
+        $_SESSION["Bio"]      = $bio;
+        $_SESSION["Fullname"] = $full;
         echo "<script type=\"text/javascript\">document.location=\"home.php\"</script>";
         exit();
       }

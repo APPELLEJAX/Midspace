@@ -19,7 +19,7 @@
   $pid = (int)trim($_POST["proid"]);
 
   //Open profiles for reading.
-  if(($handle = fopen("profiles.txt", "r")) === FASLE){
+  if(($handle = fopen("profiles.txt", "r")) === FALSE){
     echo "INTERNAL ERROR! 2";
     exit();
   }
@@ -47,14 +47,14 @@
     //Append to lines affected by add-friend
     if(trim($lastline) == "Friends:" && $cuid == $pid)
       $line = trim($line)."\t$uid";
-    if(trim($lastline) == "Firends:" && $cuid == $uid)
+    if(trim($lastline) == "Friends:" && $cuid == $uid)
       $line = trim($line)."\t$pid";
 
     //Set lastline for iteration framework.
     $lastline = $line;
 
     //Writeback line.
-    fwrite($line."\n");
+    fwrite($handle, $line."\n");
 
   }
 

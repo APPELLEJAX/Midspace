@@ -24,10 +24,10 @@
       echo "<input id=\"search\" type=\"text\" name=\"search\" placeholder=\"Search Midspace Users...\" /><input type=\"submit\" value=\"Search\" />";
       echo "</form>";
       echo "<a class=\"navLNK\" href=\"home.php\"><img src=\"home.png\" alt=\"home\" />Home</a>";
-      echo "<a class=\"navLNK\" href=\"profile.php\"><img src=\"profile.png\" alt=\"profile\" />PROFILE</a>";
+      echo "<a class=\"navLNK\" href=\"profile.php\"><img src=\"profile.png\" alt=\"profile\" />Profile</a>";
       echo "<a class=\"navLNK\" href=\"logout.php\"><img src=\"exit.png\" alt=\"exit\" />Logout</a>";
       echo "</div>";
-      echo "<br /><br /><br /><br /><br /><br />";
+      echo "<br /><br /><br /><br /><br /><br /><br /><br />";
     }
 
     public function displayContent(){
